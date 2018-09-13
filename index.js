@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const clone = require('git-clone');
 const program = require('commander');
 const shell = require('shelljs');
 const chalk = require('chalk');
+const inquirer = require('inquirer');
+const clone = require('./lib/clone');
 const pkg = require('./package');
 
 program
@@ -11,10 +12,10 @@ program
   .description(pkg.dependencies)
 
 program
-  .command('init <tpl> <project>')
+  .command('init')
   .alias('i')
   .description('请选择模版初始化工程')
-  .action(function(tpl, project) {
+  .action(function() {
     require('figlet')('S K Y L O R', function(err, data) {
       if (data) {
         console.log(chalk.red(data))
@@ -23,28 +24,79 @@ program
       console.log('目前skylor-cli支持以下模板：');
       listTemplateToConsole();
 
-      if (tpl && project) {
-        let pwd = shell.pwd();
-        clone(`https://github.com/skyFi/skylor-${tpl}.git`, pwd + `/${project}`, null, function() {
-          shell.rm('-rf', pwd + `/${project}/.git`);
-          console.log(`当前创建的项目地址：${pwd}/${project}/`);
-          console.log('接下来你可以：');
-          console.log('');
-          console.log(chalk.blue(`    $ cd ${project}`));
-          console.log(chalk.blue(`    $ npm install`));
-          console.log(chalk.blue(`    $ npm start`));
-          console.log('');
-        })
-      } else {
-        console.error(chalk.red('正确命令例子：skylor r myProject'));
-      }
+      const prompt = inquirer.createPromptModule();
+      prompt({
+        type: 'list',
+        name: 'type',
+        message: '项目类型:',
+        default: 'r   - React 最佳实践',
+        choices: [
+          'api - Api 服务器工程',
+          'io  - Socket 服务器工程',
+          'mi  - Node.js 微服务器工程',
+          'r   - React 最佳实践',
+          'ra  - React 后台管理最佳实践',
+          'rn  - React Native 最佳实践',
+          'v   - Vue 最佳实践',
+        ],
+      }).then((res) => {
+        const type = res.type.split(' ')[0];
+        prompt({
+          type: 'input',
+          name: 'project',
+          message: '项目名称:',
+          validate: function (input) {
+            // Declare function as asynchronous, and save the done callback
+            const done = this.async();
+            // Do async stuff
+            setTimeout(function() {
+              if (!input) {
+                // Pass the return value in the done callback
+                done('You need to provide a dirName.');
+                return;
+              }
+              // Pass the return value in the done callback
+              done(null, true);
+            }, 0);
+          }
+        }).then((iRes) => {
+          const project = iRes.project;
+          let pwd = shell.pwd();
+          clone(`https://github.com/skyFi/skylor-${type}.git`, pwd + `/${project}`, {
+            success() {
+              // 删除 git 目录
+              shell.rm('-rf', pwd + `/${project}/.git`);
+
+              // 提示信息
+              console.log(`项目地址：${pwd}/${project}/`);
+              console.log('接下来你可以：');
+              console.log('');
+              console.log(chalk.blue(`    $ cd ${project}`));
+              console.log(chalk.blue(`    $ npm install`));
+              console.log(chalk.blue(`    $ npm start`));
+              console.log('');
+            },
+            fail(err) {
+              console.log(chalk.red(`${err}`));
+            },
+            onData(data = '') {
+              const d = data.toString();
+              if (d.indexOf('fatal') !== -1 || d.indexOf('error') !== -1) {
+                console.log(chalk.red(`${data}`));
+              } else {
+                console.log(chalk.blue(`${data}`));
+              }
+            },
+          })
+        });
+      });
     });
   }).on('--help', function() {
   console.log('');
   console.log('Examples:');
   console.log('');
-  console.log(chalk.blue('  $ skylor i r myProject'));
-  console.log(chalk.blue('  $ skylor init ra myProject'));
+  console.log(chalk.blue('  $ skylor i'));
+  console.log(chalk.blue('  $ skylor init'));
   console.log('');
   console.log('All Available Templates:');
   listTemplateToConsole();
