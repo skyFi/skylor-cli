@@ -1,6 +1,6 @@
 {
   "name": "skylor-cli",
-  "version": "0.0.2-0",
+  "version": "1.0.0",
   "description": "A cli just for skylor's development.",
   "main": "index.js",
   "scripts": {
