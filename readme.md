@@ -1,14 +1,14 @@
-# 超级命名 skylor-cli
+# Super Command Line  `skylor-cli`
 
 ## todoList
 
-* [ ] `NodeApi` -> Api服务器脚手架
-* [ ] `Socket` -> Socket服务器脚手架
-* [ ] `Micro` -> 微服务脚手架
-* [ ] `ReactAdmin` -> 基于 React 的后台管理脚手架
-* [ ] `React` -> 基于 React 的 ToC 应用脚手架
-* [ ] `Vue` -> 基于 Vue 的应用脚手架
-* [ ] `ReactNative` -> ReactNative应用脚手架
+* [ ] `NodeApi` -> Api server scaffold
+* [ ] `Socket` -> Socket server scaffold
+* [ ] `Micro` -> Micro server scaffold
+* [ ] `ReactAdmin` -> React Admin scaffold
+* [ ] `React` -> React scaffold
+* [ ] `Vue` -> Vue scaffold
+* [ ] `ReactNative` -> React Native scaffold
 
 ## Install
 
