@@ -27,7 +27,17 @@ yarn global add skylor-cli
 ## Usage
 
 ```shell
+// 初始化 skylor
 skylor init
+
+// 查看版本号
+skylor --version // or skylor -V
+
+// 查看帮助
+skylor --help
+
+// 查看某个命名的帮助
+skylor init --help
 ```
 
 ### 项目类型
