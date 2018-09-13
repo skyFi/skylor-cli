@@ -27,13 +27,16 @@ yarn global add skylor-cli
 ## Usage
 
 ```shell
-skylor init [NodeApi | Socket | Micro | ReactAdmin | React | Vue | ReactNative] ./path/to/my-project
+skylor init <type> ./path/to/my-project
 ```
+### type
 
-### NodeApi
-### Socket
-### Micro
-### ReactAdmin
-### React
-### Vue
-### ReactNative
+生成的项目类型，有以下选项：
+
+#### NodeApi
+#### Socket
+#### Micro
+#### ReactAdmin
+#### React
+#### Vue
+#### ReactNative
