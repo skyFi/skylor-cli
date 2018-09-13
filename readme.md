@@ -42,10 +42,10 @@ skylor init --help
 
 ### 项目类型
 
-#### `api - Api 服务器工程`
-#### `io  - Socket 服务器工程`
-#### `mi  - Node.js 微服务器工程`
-#### `r   - React 最佳实践`
-#### `ra  - React 后台管理最佳实践`
-#### `rn  - React Native 最佳实践`
-#### `v   - Vue 最佳实践`
+* `api` - [Api 服务器工程](https://github.com/skyFi/skylor-api.git)
+* `io`  - [Socket 服务器工程](https://github.com/skyFi/skylor-io.git)
+* `mi`  - [Node.js 微服务器工程](https://github.com/skyFi/skylor-mi.git)
+* `r`   - [React 最佳实践](https://github.com/skyFi/skylor-r.git)
+* `ra`  - [React 后台管理最佳实践](https://github.com/skyFi/skylor-ra.git)
+* `rn`  - [React Native 最佳实践](https://github.com/skyFi/skylor-rn.git)
+* `v`   - [Vue 最佳实践](https://github.com/skyFi/skylor-v.git)
