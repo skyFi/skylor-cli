@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pkg": "pkg ."
+    "start": "node ./index.js"
   },
   "keywords": [
     "skylor",
@@ -15,21 +15,17 @@
   "author": "skylor",
   "license": "MIT",
   "bin": {
-    "skylor": "./bin/skylor.js",
-    "skylor-cli": "./bin/skylor.js"
+    "skylor": "./index.js",
+    "skylor-cli": "./index.js"
   },
   "engines": {
     "node": ">=8.9.4"
   },
-  "pkg": {
-    "scripts": "build/**/*.js"
-  },
-  "devDependencies": {
-    "pkg": "^4.3.4"
-  },
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
-    "semver": "^5.5.1"
+    "figlet": "^1.2.0",
+    "git-clone": "^0.1.0",
+    "shelljs": "^0.8.2"
   }
 }
