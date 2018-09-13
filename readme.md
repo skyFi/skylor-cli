@@ -33,10 +33,10 @@ skylor init <type> ./path/to/my-project
 
 生成的项目类型，有以下选项：
 
-#### NodeApi
-#### Socket
-#### Micro
-#### ReactAdmin
-#### React
-#### Vue
-#### ReactNative
+#### `NodeApi | api`
+#### `Socket | io`
+#### `Micro | mi`
+#### `ReactAdmin | ra`
+#### `React | r`
+#### `Vue | v`
+#### `ReactNative | rn`
