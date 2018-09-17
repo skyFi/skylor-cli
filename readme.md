@@ -2,13 +2,14 @@
 
 ## todoList
 
-* [ ] `api - NodeApi` -> Api server scaffold
-* [ ] `io  - Socket` -> Socket server scaffold
-* [ ] `mi  - Micro` -> Micro server scaffold
-* [ ] `ra  - ReactAdmin` -> React Admin scaffold
-* [ ] `r   - React` -> React scaffold
-* [ ] `v   - Vue` -> Vue scaffold
-* [ ] `rn  - ReactNative` -> React Native scaffold
+* [ ] `api - NodeApi` -> 接口服务
+* [ ] `io  - Socket` -> 长链接服务
+* [ ] `mi  - Micro` -> 微服务架构
+* [ ] `ra  - ReactAdmin` -> React搭建后台管理应用
+* [ ] `r   - React` -> React搭建web应用
+* [ ] `v   - Vue` -> Vue搭建web应用
+* [ ] `rn  - ReactNative` -> RN搭建移动端应用
+* [ ] `re  - React Electron` -> 桌面应用
 
 ## Install
 
